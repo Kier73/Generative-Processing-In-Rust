@@ -4,7 +4,7 @@ The vGPU is an architecture for **Optmization**, and aims to be a virtual co-pro
 
 Mainly built in the Rust language, the architecture uses a Geometric framing for computation and a **Generative** approach to Virtual Memory.
 
-To operate, the vGPU uses custom method of memoization called **Process Induction**. 
+To operate, the vGPU uses a custom method of memoization called **Process Induction**. 
 
 Process Induction learns the logical structure of any given computation, rather than just output values. Then, through feistel based Deterministic Hashes, the vGPU encodes the inducted logic as 64-bit seeds in a SHA256 formed address space. This space is observed as a geometric manifold or torus, and the encoded seeds as the topology. 
 
