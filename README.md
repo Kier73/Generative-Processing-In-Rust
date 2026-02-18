@@ -1,6 +1,6 @@
-# G means Generative: Modelling Scale-invariant Operations in Virtual Memory
+# G means Generative: Scale-invariant Operations in Virtual Memory
 
-The vGPU is an architecture for **Optmization**, and aims to be a virtual co-processor, not a replacement. 
+The vGPU is for **Optimzation**, while also providing bit-exact methods of **Processing in Virtual Memory** for host hardware
 
 Mainly built in the Rust language, the architecture uses a **Generative** approach to processing by treating it as compression...huh?
 
