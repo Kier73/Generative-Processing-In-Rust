@@ -13,6 +13,7 @@ Resulting in the $O(1)$ recall of complex algorithms, alongside bit-exact Numeri
 ## X Marks the Spot!
 
 Indexing and Observation of the encoded geometry is achieved through Residue Number Systems (RNS) and Time
+
 RNS represents a value associated to a hash not as a single number, but as a set of remainders across coprime moduli. No matter the scale of the hashed address, an adaptable number of primes can be used for accuracy. 
 
 By the Chinese Remainder Theorem (CRT), tuples can  identify any hash and pull its value from within the geometry. Each modulus acts as a dimension, each residue a coordinate, and the hash their intersection. 
