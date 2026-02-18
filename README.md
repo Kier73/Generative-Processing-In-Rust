@@ -1,6 +1,21 @@
-# vGPU: G means Generative
+# G means Generative: Modelling Scale-invariant Operations in Virtual Memory
 
-vGPU is an optmization oriented virtual processing system built in the Rust language that implements a Generative and Geometric approach to computation. The vGPU uses Prediction and a custom Deterministic Hash method of memoization called Process Induction that  enables $O(1)$ recall of complex algorithms, historical states and numerically exact outputs via residue number system (RNS). In short, The system learns and optimizes the path from **Point A (Input)** to **Point B (Output)** by encoding information and calculation into **Geometry and Time**.
+The vGPU is an architecture for **Optmization**, and aims to be a virtual co-processor, not a replacement. 
+
+Mainly built in the Rust language, the architecture uses a Geometric framing for computation and a **Generative** approach to Virtual Memory.
+
+To operate, the vGPU uses custom method of memoization called **Process Induction**. 
+
+Process Induction learns the logical structure of any given computation, rather than just output values. Then, through feistel based Deterministic Hashes, the vGPU encodes the inducted logic as 64-bit seeds in a SHA256 formed address space. This space is observed as a geometric manifold or torus, and the encoded seeds as the topology. 
+
+Resulting in the $O(1)$ recall of complex algorithms, alongside bit-exact Numerical Reproducibility by simply Observing points on Geometry.
+
+## X Marks the Spot!
+
+Indexing and Observation of the encoded geometry is achieved through Residue Number Systems (RNS) and Time
+RNS represents a value associated to a hash not as a single number, but as a set of remainders across coprime moduli. No matter the scale of the hashed address, an adaptable number of primes can be used for accuracy. 
+
+By the Chinese Remainder Theorem (CRT), tuples can  identify any hash and pull its value from within the geometry. Each modulus acts as a dimension, each residue a coordinate, and the hash their intersection. 
 
 
 ## System Overview
