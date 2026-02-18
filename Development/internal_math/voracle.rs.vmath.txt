@@ -1,0 +1,32 @@
+# vMath Synthesis: vgpu_rust/src/voracle.rs
+
+## 1. Semantic Isomorphism (HDC Fingerprints)
+**Lines 9-22, 164-187**
+- **Logic**: Representing kernel patterns as a high-dimensional vector to detect structural similarity.
+- **Math (LaTeX)**:
+  Let $V \in \{-1, 1\}^{1024}$ be an HDC vector. Similarity $S$ between two fingerprints $\sigma_1, \sigma_2$:
+  \[ S(\sigma_1, \sigma_2) = \frac{V_1 \cdot V_2}{||V_1|| \cdot ||V_2||} \]
+  If $S > 0.9$, the latent spaces are considered isomorphic candidates.
+- **Virtual Layer Dynamics**: **Topological Recognition**. Memoizing computations based on structural similarity rather than bit-exact identity.
+
+---
+
+## 2. RNS Torus Oracle (VPR Engine)
+**Lines 25-60, 143-162**
+- **Logic**: Continuous approximation of latent coordinates using a harmonic basis on a Torus.
+- **Math (LaTeX)**:
+  Prediction $Y$ for fingerprint $\sigma$ and hash $H$:
+  \[ Y = \sum_{i=1}^{8} \sum_{k=1}^{N_{harm}} w_{i,k} \cdot \sin(2\pi \cdot f_k \cdot \theta_i + \Phi) \]
+  where $\theta_i$ are the residues of $H$ normalized to $[0, 1)$ on an 8-dimensional Torus.
+- **Virtual Layer Dynamics**: **Generative Approximation**. High-dimensional diversity is compressed into a set of harmonic weights, allowing $O(1)$ resolution of previously unseen coordinates.
+
+---
+
+## 3. Bayesian Correction (Gradient Descent)
+**Lines 65-100 (Implicit training loop)**
+- **Logic**: Updating Torus weights using observed ground-truth data.
+- **Math (LaTeX)**:
+  Weight update $\Delta w$:
+  \[ \Delta w_{i,k} = \eta \cdot (actual - predicted) \cdot \sin(\dots) \]
+  where $\eta$ is the learning rate.
+- **Virtual Layer Dynamics**: **Manifold Learning**. The vGPU continuously self-corrects its predictive model based on "Residual Error" between its internal model and external observations.

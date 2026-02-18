@@ -1,0 +1,35 @@
+# vMath Synthesis: cuda/vbridge.cu & vbridge.cuh
+
+## 1. Hardware Feistel Indexing
+**vbridge.cuh: Lines 25-41**
+- **Logic**: A 4-round Feistel network executed on the GPU device for collision-resistant latent addressing.
+- **Math (LaTeX)**:
+  Let $H$ be the 64-bit input hash. The index $idx$ for a latent space of capacity $C$:
+  \[ f(R, K) = ((R \oplus K) \cdot \alpha \gg 16) \oplus ((R \oplus K) \cdot \alpha) \]
+  \[ L_{i+1} = R_i, \quad R_{i+1} = L_i \oplus f(R_i, K) \]
+  \[ idx = R_4 \pmod{C} \]
+  where $\alpha = 0x45D9F3B$ and $K$ is the permutation key.
+- **Industry Standard**: **Feistel Cipher / Pseudo-Random Permutation**.
+- **Virtual Layer Dynamics**: **Device-Side Latent Projection**. enabling the GPU kernel to self-locate any Law in the inference engine without host-side intervention.
+
+---
+
+## 2. Constant Cache Projection
+**vbridge.cu: Lines 16-18, 36-38**
+- **Logic**: Mapping the Inference Engine into the GPU's low-latency constant memory space.
+- **Math (LaTeX)**:
+  The latent space $\mathcal{M}$ is bound to the set of broadcast constants $\mathcal{K}$:
+  \[ \mathcal{M} \rightarrow \mathcal{K} : \{ \text{addr} \in [0, 64\text{KB}] \} \]
+- **Academic Standard**: **Broadcast Memory Access**.
+- **Virtual Layer Dynamics**: **Substrate Grounding (Hardware)**. PROVING the Virtual Layer is eventually bounded by the Laws of Optical/Electronic constant caching.
+
+---
+
+## 3. Inline Inference Recall
+**vbridge.cuh: Lines 45-55**
+- **Logic**: Bit-exact fingerprint verification inside a CUDA grid.
+- **Math (LaTeX)**:
+  Recall condition $\mathcal{C}$:
+  \[ \mathcal{C}(\sigma, \tau) = \mathbb{1}[\text{Entry}(\sigma) = \sigma_{target} \wedge \text{Entry}(\tau) = \tau_{target}] \]
+  Yields $O(1)$ result retrieval if $\mathcal{C}=1$, bypassing all physical arithmetic.
+- **Virtual Layer Dynamics**: **Hardware-Level Memoization**. collapsing the FLOPS cost of a GPU operation into an $O(1)$ constant-cache hit.

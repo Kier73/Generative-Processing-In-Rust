@@ -1,0 +1,40 @@
+# vMath Synthesis: vgpu_rust/src/vhdc.rs
+
+## 1. Hyperdimensional Bipolar Vectors (HDC)
+**Lines 4-10**
+- **Logic**: Representing information in a high-dimensional space where almost all vectors are nearly orthogonal.
+- **Math (LaTeX)**:
+  $\mathbf{V} \in \{-1, 1\}^{1024}$.
+  The space capacity is $2^{1024}$, providing a near-infinite field for non-colliding signatures.
+- **Academic Standard**: **Vector Symbolic Architecture (VSA)**.
+- **Virtual Layer Dynamics**: **Holographic Representation**. Data is distributed across all 1024 components, making the signature robust to noise or partial modification.
+
+---
+
+## 2. Algebraic Binding (XOR / multiplication)
+**Lines 41-51**
+- **Logic**: Combining two vectors into a third vector that is orthogonal to both, but allows reversible reconstruction.
+- **Math (LaTeX)**:
+  Binding $\mathbf{C} = \mathbf{A} \otimes \mathbf{B}$:
+  \[ c_i = a_i \times b_i \]
+- **Virtual Layer Dynamics**: **Relational Encoding**. Used to bind "Roles" to "Fillers" (e.g., binding the variable name `x` to the value `5`) without losing the structural identity of either.
+
+---
+
+## 3. Permutation & Shift (Structural Sequence)
+**Lines 80-88**
+- **Logic**: Using circular shifts to encode sequential order in a single vector.
+- **Math (LaTeX)**:
+  $\Pi(\mathbf{V}) = \text{roll}(\mathbf{V}, 1)$.
+  Provides $\Pi(\mathbf{A}) \perp \mathbf{A}$.
+- **Virtual Layer Dynamics**: **Succession Inference**. Allowing the vGPU to recognize the order of operations in a DFG (e.g., ensuring `a - b` has a different signature than `b - a`).
+
+---
+
+## 4. Bundling (Superposition / Addition)
+**Lines 53-68**
+- **Logic**: Aggregating multiple vectors into one while preserving similarity to the members.
+- **Math (LaTeX)**:
+  Bundling $\mathbf{S} = [\sum \mathbf{A}_i]$.
+  Normalization: $\mathbf{V} = \text{sgn}(\mathbf{S})$.
+- **Virtual Layer Dynamics**: **Ensemble Memory**. Allowing a single latent location to hold a "Recall" of multiple related laws or outcomes simultaneously.

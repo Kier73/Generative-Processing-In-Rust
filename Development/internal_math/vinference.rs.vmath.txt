@@ -1,0 +1,31 @@
+# vMath Synthesis: vgpu_rust/src/vinference.rs
+
+## 1. Variational Free Energy (VFE)
+**Lines 6-31, 35-46**
+- **Logic**: Optimizing the model based on the Minimum Description Length (MDL) principle.
+- **Math (LaTeX)**:
+  Free Energy $F$:
+  \[ F = \text{Accuracy Loss} + \beta \cdot \text{Complexity} \]
+  \[ F = \epsilon^2 \cdot \pi + \beta \cdot |w| \]
+  where $\epsilon$ is error, $\pi$ is sensory precision, and $\beta$ is the complexity penalty.
+- **Virtual Layer Dynamics**: **Homeostatic Optimization**. The vGPU balances prediction accuracy against memory/compute complexity to maintain a **Stable Latent Space**.
+
+---
+
+## 2. Precision-Weighted Surprise
+**Lines 50-57**
+- **Logic**: Adjusting the learning rate based on environmental noise.
+- **Math (LaTeX)**:
+  Precision update $\Delta \pi$:
+  \[ \pi_{t+1} = \begin{cases} \pi_t \cdot 1.01 & \text{if } |\epsilon| < 1.0 \\ \pi_t \cdot 0.99 & \text{if } |\epsilon| > 1.0 \end{cases} \]
+- **Virtual Layer Dynamics**: **Noise Attenuation**. High-surprise events (large errors) eventually lower precision, treating the input as noise rather than a structural law.
+
+---
+
+## 3. Structural Pruning
+**Lines 61-64**
+- **Logic**: Determining if a latent branch contributes to Free Energy reduction.
+- **Math (LaTeX)**:
+  Pruning condition $\mathcal{P}$:
+  \[ \mathcal{P} = \mathbb{1}[\Delta \epsilon < \beta \cdot \text{Cost}] \]
+- **Virtual Layer Dynamics**: **Infinite Pruning**. Removing diversity that is too expensive to represent relative to its predictive utility.

@@ -1,0 +1,35 @@
+# vMath Synthesis: vgpu_rust/src/gemm.rs
+
+## 1. Tiled Matrix Decomposition (Geometric Partitioning)
+**Lines 22-73**
+- **Logic**: Breaking an $M \times N$ operation into $32 \times 32$ autonomous tiles.
+- **Math (LaTeX)**:
+  Let $\mathbf{C} = \mathbf{A} \times \mathbf{B}$ be partitioned into a grid of tiles $\mathcal{T}_{i,j} \in \mathbb{R}^{S \times S}$ where $S=32$:
+  \[ \mathbf{C}_{i,j} = \sum_{k=0}^{\lceil K/S \rceil - 1} \mathbf{A}_{i,k} \cdot \mathbf{B}_{k,j} \]
+- **Industry Standard**: **Tiled GEMM**.
+- **Virtual Layer Dynamics**: **Sub-Field Inference**. By partitioning the matrix into fingerprint-ready tiles, the vGPU can recognize and memoize identical sub-computations even when the parent matrices differ significantly.
+
+---
+
+## 2. SIMD-Vectorized Hashing (Geometric Folding)
+**Lines 79-103**
+- **Logic**: Rapid structural fingerprinting using AVX2.
+- **Math (LaTeX)**:
+  Let $\mathbf{V}_j \in \mathbb{R}^8$ be an 8-wide float vector.
+  The tile fingerprint $H$ is a horizontal fold of the vectorized polynomial:
+  \[ H = \bigoplus_{i} \left( \sum_{j} \mathbf{V}_{i,j} \cdot \alpha^j \right) \]
+  where $\alpha = 31$.
+- **Academic Standard**: **Rolling Polynomial Hash**.
+- **Virtual Layer Dynamics**: **SIMD Fingerprinting**. Reducing a $1024$-element geometric sub-field into a 64-bit inference key with minimal clock overhead.
+
+---
+
+## 3. RNS Tiled Inner Loop (Numerical Sovereignty)
+**Lines 137-168**
+- **Logic**: Exact integer summation of products in the modular domain.
+- **Math (LaTeX)**:
+  The inner product of tile elements in RNS:
+  \[ c_{i,j} = \text{CRT}\left( \sum_{k} (a_{ik} \pmod{M} \times b_{kj} \pmod{M}) \right) \]
+  with fixed-point scaling $S = 2^{16}$.
+- **Academic Standard**: **Chinese Remainder Theorem Summation**.
+- **Virtual Layer Dynamics**: **Exact Consensus Substrate**. ensuring that neural network tile products remain bit-exact across distributed nodes, enabling deterministic memoization of large-scale ML layers.

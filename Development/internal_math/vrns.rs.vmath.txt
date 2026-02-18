@@ -1,0 +1,31 @@
+# vMath Synthesis: vgpu_rust/src/vrns.rs
+
+## 1. Parallel Residue Decomposition (RNS)
+**Lines 4-12**
+- **Logic**: Breaking a 64-bit integer into a set of small, independent remainders using co-prime moduli.
+- **Math (LaTeX)**:
+  Basis $\mathcal{M} = \{m_1, m_2, \dots, m_8\}$.
+  $X \rightarrow (r_1, r_2, \dots, r_8)$ where $r_i = X \pmod{m_i}$.
+  Dynamic Range $M = \prod m_i \approx 2.72 \times 10^{19} > 2^{64}$.
+- **Academic Standard**: **Residue Number System (RNS)**.
+- **Virtual Layer Dynamics**: **Numerical Sovereignty**. RNS allows the vGPU to perform addition and multiplication of exascale numbers with zero carry-propagation, enabling massive parallel bit-exactness.
+
+---
+
+## 2. Chinese Remainder Theorem (CRT Reconstruction)
+**Lines 37-58**
+- **Logic**: Exact reconstruction of a scalar from its residues.
+- **Math (LaTeX)**:
+  \[ X = \left( \sum_{i=1}^8 r_i M_i y_i \right) \pmod{M} \]
+  where $M_i = M/m_i$ and $y_i$ is the modular inverse of $M_i$.
+- **Virtual Layer Dynamics**: **Holographic Reconstruction**. Any single residue $r_i$ is "meaningless" on its own, but the ensemble $R$ contains the full deterministic truth of the number.
+
+---
+
+## 3. Fast Feistel Mixing (Latent Distribution)
+**Lines 111-124**
+- **Logic**: A non-linear permutation network used to distribute keys uniformly across the latent space.
+- **Math (LaTeX)**:
+  4-round Feistel:
+  \[ L_{i+1} = R_i, \quad R_{i+1} = L_i \oplus F(R_i, K) \]
+- **Virtual Layer Dynamics**: **Substrate Diffusion**. Ensuring that "Similar Inputs" do not cluster in the latent space, preventing cache-line hot-spots and ensuring that the vGPU's memoization performance remains constant ($O(1)$) regardless of input patterns.

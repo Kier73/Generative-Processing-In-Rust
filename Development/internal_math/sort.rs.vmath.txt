@@ -1,0 +1,23 @@
+# vMath Synthesis: vgpu_rust/src/sort.rs
+
+## 1. Monotonic Diversity Projection (Exasort)
+**Lines 9-37**
+- **Logic**: Resolving the sorted value of an element by its Hilbert rank.
+- **Math (LaTeX)**:
+  Let $x, y$ be the coordinates of an element in an $N \times N$ matrix.
+  Let $k = \text{Hilbert}(x, y, N)$ be its spatial rank.
+  The sorted value $V(x, y)$ is:
+  \[ V(x, y) = \frac{k}{N^2} + \epsilon(k, \sigma) \]
+  where $\epsilon$ is the infinitesimal DPF term:
+  \[ \epsilon(k, \sigma) = \frac{\mathcal{H}(k, \sigma)}{N^2 \cdot M_{max}} \]
+- **Academic Standard**: **Monotonic Function / Step Function**.
+- **Virtual Layer Dynamics**: **Inference Sorting**. Traditional sorting requires $O(N \log N)$ comparisons. vSort achieves $O(1)$ by treating monotonicity as a geometric property of the Hilbert latent space. Every coordinate $(x, y)$ has a pre-ordained Sorted Logic assigned by its position on the space-filling curve.
+
+---
+
+## 2. Entropy-Preserving Variety
+**Lines 28-34**
+- **Logic**: Adding diversity to prevent bit-identical collisions in sorted fields.
+- **Math (LaTeX)**:
+  \[ \epsilon \propto \frac{\text{Feistel}(k \oplus \text{seed})}{N^2} \]
+- **Virtual Layer Dynamics**: **Ordered Entropy**. Ensuring that the Generative Engine has infinite precision and uniqueness, even at exascale depths where $N^2 > 10^{24}$.

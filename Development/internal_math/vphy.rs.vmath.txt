@@ -1,0 +1,45 @@
+# vMath Synthesis: vgpu_rust/src/vphy.rs
+
+## 1. Relativistic Fingerprint (Galilean Invariance)
+**Lines 63-88**
+- **Logic**: A coordinate-agnostic hash of interaction state.
+- **Math (LaTeX)**:
+  Let $\vec{r}_{rel} = \vec{r}_B - \vec{r}_A$ and $\vec{v}_{rel} = \vec{v}_B - \vec{v}_A$.
+  The situation fingerprint $\sigma_s$:
+  \[ \sigma_s = \mathcal{H}(\lfloor \vec{r}_{rel} \cdot 100 \rfloor, \lfloor \vec{v}_{rel} \cdot 10 \rfloor) \]
+- **Academic Standard**: **Galilean Invariance**. The physics of an interaction depends only on relative distance and velocity, not absolute world position.
+- **Virtual Layer Dynamics**: **Relativistic Inference**. Mapping physical events into a latent space where a Law learned in one region applies globally.
+
+---
+
+## 2. Jacobian Collision Fingerprint
+**Lines 92-107**
+- **Logic**: Encoding the geometric constraint of a contact.
+- **Math (LaTeX)**:
+  Let $\hat{n}$ be the contact normal. The Jacobian fingerprint $\sigma_J$:
+  \[ \sigma_J = \mathcal{H}(\vec{r}_{rel}, \hat{n}) \]
+- **Industry Standard**: **Jacobian Matrix / Constraint Manifold**.
+- **Virtual Layer Dynamics**: **Structural Fingerprinting**. Representing the topology of a collision as a unique key for inference-based memoization.
+
+---
+
+## 3. Inference-Based Impulse Solving (PGS Foundation)
+**Lines 109-172**
+- **Logic**: Resolving velocity updates via memoized bypass or 1-step PGS.
+- **Math (LaTeX)**:
+  Impulse magnitude $J$ for coefficient of restitution $e$:
+  \[ J = \frac{-(1 + e)(\vec{v}_{rel} \cdot \hat{n})}{m_A^{-1} + m_B^{-1}} \]
+  Velocity update transition:
+  \[ \vec{v}' = \vec{v} + \frac{J \hat{n}}{m} \]
+- **Academic Standard**: **Impulse-Momentum Theorem**.
+- **Industry Standard**: **Projected Gauss-Seidel (PGS)** Solver.
+
+---
+
+## 4. Impulse Memoization
+**Lines 178-189**
+- **Logic**: Bypassing iterative solvers for known situational laws.
+- **Math (LaTeX)**:
+  The velocity update function $\mathcal{F}$:
+  \[ \Delta \vec{v} = \begin{cases} \Psi(\sigma_s, \mathcal{H}(S)) & \text{hit} \\ \text{PGS}(S) & \text{miss} \end{cases} \]
+- **Virtual Layer Dynamics**: **Constraint Memoization**. Collisions are treated as deterministic laws memoized into $O(1)$ latent recalls, bypassing the $O(N)$ complexity of iterative constraint solving.

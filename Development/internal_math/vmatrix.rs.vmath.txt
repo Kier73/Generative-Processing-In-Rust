@@ -1,0 +1,62 @@
+# vMath Synthesis: vgpu_rust/src/vmatrix.rs
+
+## 1. The Geometric Field Descriptor
+**Lines 10-31**
+- **Logic**: A matrix defined by metadata rather than storage.
+- **Math (LaTeX)**:
+  An exascale matrix $M$ is defined as a tuple $(\sigma, R, C, d)$:
+  \[ M \in \mathcal{G} : \mathbb{Z}^2 \rightarrow \mathbb{R} \]
+  where the value at $(i, j)$ is a deterministic function of the fingerprint $\sigma$ and local coordinates.
+- **Virtual Layer Dynamics**: **Zero-Storage Inference**. Computation replaces storage ($T \leftrightarrow S$ duality).
+
+---
+
+## 2. O(1) Law Synthesis (Product Inference)
+**Lines 36-62**
+- **Logic**: Matrix multiplication as a metadata binding.
+- **Math (LaTeX)**:
+  Let $C = A \otimes B$. The fingerprint $\sigma_C$:
+  \[ \sigma_C = \mathcal{H}(\sigma_A, \sigma_B, N_{cols}) \]
+  The depth $d_C = d_A + d_B$.
+- **Virtual Layer Dynamics**: **Algebraic Binding**. The substrate registers the *intent* of multiplication, deferring the *cost* of resolution to the Inference Observer.
+
+---
+
+## 3. Recursive RNS Resolution (Product Path)
+**Lines 153-217**
+- **Logic**: Bit-exact resolution of product values using Residue Number Systems.
+- **Math (LaTeX)**:
+  To resolve $c_{i,j}$ at depth $D$:
+  \[ c_{i,j} = \left( \sum_{k=0}^{N-1} \text{resolve}(A, i, k) \cdot \text{resolve}(B, k, j) \right) \pmod{\prod m_n} \]
+  Scaling factor $S = 2^{32}$ (fixed-point precision).
+- **Academic Standard**: **Discrete Convolution / Dot Product**.
+- **Virtual Layer Dynamics**: **Numerical Absolute**. Using RNS to prevent the cascading error typically found in deep floating-point matrix chains.
+
+---
+
+## 4. Latency-Aware Reorientation (LAR) Guard
+**Lines 202-213**
+- **Logic**: Partial resolution to maintain real-time constraints.
+- **Math (LaTeX)**:
+  Resolution truncation at step $k_{limit}$:
+  \[ \hat{c}_{i,j} = \sum_{k=0}^{k_{limit}} a_{ik}b_{kj} \quad \text{s.t. } \text{time}(k_{limit}) < \tau_{LAR} \]
+- **Virtual Layer Dynamics**: **Graceful Dissonance**. Preferring a partial (approximated) result over process-blocking latency.
+
+---
+
+## 5. Adaptive DPF Hashing
+**Lines 221-252**
+- **Logic**: Tiered hashing for multi-scale resolution.
+- **Math (LaTeX)**:
+  DPF function $\mathcal{V}$ scales with data volume $N$:
+  \[ \mathcal{V}(i) = \begin{cases} \text{Linear8}(i) & N \le 2^8 \\ \text{XORShift16}(i) & 2^8 < N \le 2^{14} \\ \text{Feistel64}(i) & N > 2^{14} \end{cases} \]
+- **Industry Standard**: Multi-Scale Entropy.
+- **Virtual Layer Dynamics**: **Resolution-Energy Symmetry**. Matching the computational cost of the hash to the informational density of the request.
+
+## 6. Bayesian Anchor resolution (VPR)
+**Lines 272-278, 408-428**
+- **Logic**: Replacing recursive $O(K)$ loops with $O(1)$ Torus Oracle predictions.
+- **Math (LaTeX)**:
+  For a product field $C = A \otimes B$:
+  \[ c_{i,j} = \text{Anchor}(\sigma_C, i, j) \text{ if } H(\sigma_C) < \tau \]
+- **Virtual Layer Dynamics**: **Computational Homeostasis**. The matrix "learns" its own solution through periodic observation during $O(K)$ resolution, eventually collapsing into a pure $O(1)$ oracle.

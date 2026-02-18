@@ -1,0 +1,49 @@
+# vMath Synthesis: vgpu_rust/src/native_jit.rs
+
+## 1. ISA Grounding (Silicon Translation)
+**Lines 130-195**
+- **Logic**: Mapping algebraic substrate operators to x86-64 binary opcodes.
+- **Math (LaTeX)**:
+  Let $\mathcal{O}$ be the set of SpvOps. The emission function $\Psi$:
+  \[ \Psi(\text{addss}) = [0xF3, 0x0F, 0x58, 0xC1] \]
+  Transforming a virtual register $R_i$ to a memory operand:
+  \[ \text{mem}(R_i) = [RBX + i \cdot 4] \]
+- **Virtual Layer Dynamics**: **Silicon Binding**. High-level latent logic is reduced to binary logic gates on the physical CPU, ensuring $O(1)$ execution of memoized laws.
+
+---
+
+## 2. Relative Latent Jumps (Control Flow)
+**Lines 401-412**
+- **Logic**: Patching forward and backward jumps in the instruction stream.
+- **Math (LaTeX)**:
+  For a jump from instruction $P_{src}$ to $P_{dst}$:
+  The relative offset $\Delta$:
+  \[ \Delta = \text{offset}(P_{dst}) - (\text{offset}(P_{src}) + \text{InstrLen}) \]
+  The jump must satisfy $|\Delta| < 2^{31}$ for JMP32.
+- **Academic Standard**: **Relative Addressing**.
+- **Virtual Layer Dynamics**: **Continuity Inference**. ensuring that non-linear latent traversal (branches/loops) maintains topological consistency when projected onto the linear silicon substrate.
+
+---
+
+## 3. SSE-Vectorized Normalization (Geometric Correction)
+**Lines 369-381**
+- **Logic**: Normalizing vectors using parallel SSE instructions for PBR math.
+- **Math (LaTeX)**:
+  For a vector $\mathbf{v} \in \mathbb{R}^4$:
+  \[ \mathbf{v}_{sq} = \mathbf{v} \cdot \mathbf{v} \quad (\text{dpps xmm0, xmm1, 0xFF}) \]
+  \[ \mathbf{v}_{len} = \sqrt{\mathbf{v}_{sq}} \quad (\text{sqrtps}) \]
+  \[ \hat{\mathbf{v}} = \mathbf{v} \cdot \frac{1}{\mathbf{v}_{len}} \quad (\text{divps}) \]
+- **Academic Standard**: **Euclidean Normalization**.
+- **Industry Standard**: SSE4.1 SIMD Optimization.
+- **Virtual Layer Dynamics**: **Substrate Parallelism**. Offloading latent transformations to the host CPU's SIMD units.
+
+---
+
+## 4. Virtual-to-Physical ABI Projection
+**Lines 253-283**
+- **Logic**: project the register file layout onto x86-64 memory addressing.
+- **Math (LaTeX)**:
+  Address of Register $R_i$:
+  \[ \text{Addr}(R_i) = \text{Base} + (i \cdot \text{Width}) \]
+  where $\text{Width} = 4$ for float registers (SSE) and $\text{Width} = 8$ for integer registers.
+- **Virtual Layer Dynamics**: **Memory Field Inference**. Mapping the abstract Latent Register space to the linear physical memory of the process.

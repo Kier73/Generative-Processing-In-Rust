@@ -1,0 +1,52 @@
+# vMath Synthesis: vgpu_rust/src/vrender.rs
+
+## 1. Octahedral Encoding (Radiance Compression)
+**Lines 33-43**
+- **Logic**: Mapping 3D unit vectors to a 2D plane with minimal distortion.
+- **Math (LaTeX)**:
+  Let $\mathbf{v} \in S^2$ be a unit vector.
+  \[ \mathbf{v}' = \frac{\mathbf{v}}{\|\mathbf{v}\|_1} = \frac{\mathbf{v}}{|x| + |y| + |z|} \]
+  For $z < 0$:
+  \[ x' = (1 - |y|) \cdot \text{sgn}(x), \quad y' = (1 - |x|) \cdot \text{sgn}(y) \]
+- **Academic Standard**: **Octahedral Projection**.
+- **Industry Standard**: Unit Vector Quantization.
+- **Virtual Layer Dynamics**: **Directional Inference**. Compressing the spherical latent space of light directions into a coordinate system suitable for DPF-based memoization.
+
+---
+
+## 2. Recursive Radiance (The Rendering Equation)
+**Lines 69-127**
+- **Logic**: Simulating light transport via recursive ray-sphere intersections.
+- **Math (LaTeX)**:
+  The outgoing radiance $L_o$:
+  \[ L_o(p, \omega_o) = \int f_r(p, \omega_i, \omega_o) L_i(p, \omega_i) \cos \theta_i d\omega_i \]
+  In code (discrete reflection):
+  \[ L_{total} = (k_d \cdot \text{Normal} \cdot \text{Light}) + \rho \cdot L_{recursive}(p', \omega_{reflect}) \]
+- **Academic Standard**: **The Rendering Equation (Kajiya)**.
+- **Industry Standard**: Recursive Ray Tracing.
+
+---
+
+## 3. Recursive Memoization (Path Inference)
+**Lines 74-83, 134-140**
+- **Logic**: Collapsing recursive path complexity into $O(1)$ latent recalls.
+- **Math (LaTeX)**:
+  Let $\sigma_d$ be the path fingerprint at depth $d$:
+  \[ \sigma_d = \sigma_{base} \oplus \mathcal{H}(d) \]
+  The radiance function $\mathcal{L}$:
+  \[ \mathcal{L}(p, \omega, d) = \begin{cases} \Psi(\sigma_d, \mathcal{H}(p, \omega)) & \text{hit} \\ \text{Trace}(p, \omega, d) & \text{miss} \end{cases} \]
+- **Virtual Layer Dynamics**: **Radiance Convergence**. The vGPU learns the Radiance Law for a given voxel and direction. After sufficient sampling, deep recursive light transport (bounces) is memoized into a single latent space recall.
+
+---
+
+## 4. Sphere-Ray Intersection
+**Lines 18-30**
+- **Logic**: Solving the quadratic form of the ray-sphere intersection.
+- **Math (LaTeX)**:
+  Ray $\mathbf{R}(t) = \mathbf{O} + t\mathbf{D}$, Sphere $\|\mathbf{P} - \mathbf{C}\|^2 = r^2$.
+  \[ $\|\mathbf{O} + t\mathbf{D} - \mathbf{C}\|^2 - r^2 = 0 \]
+  Form $at^2 + bt + c = 0$:
+  \[ a = \mathbf{D} \cdot \mathbf{D}, \quad b = 2(\mathbf{O}-\mathbf{C}) \cdot \mathbf{D}, \quad c = \|\mathbf{O}-\mathbf{C}\|^2 - r^2 \]
+  \[ t = \frac{-b - \sqrt{b^2 - 4ac}}{2a} \]
+- **Academic Standard**: **Quadratic Intersection**.
+- **Industry Standard**: Raytracing Primitive (Sphere).

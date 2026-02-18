@@ -1,0 +1,35 @@
+# vMath Synthesis: vgpu_rust/src/vmatrix_fp.rs
+
+## 1. Probabilistic Dot Product (Monte Carlo Integration)
+**Lines 10-50**
+- **Logic**: Estimating the inner product of exascale matrices via statistical sampling of the Hilbert latent space.
+- **Math (LaTeX)**:
+  Let $\mathbf{A}, \mathbf{B}$ be geometric matrices. The dot product $D$:
+  \[ D = \sum_{i,j} A_{i,j} B_{i,j} \]
+  In the vGPU, $D$ is estimated as:
+  \[ \hat{D} = N_{total} \cdot \left( \frac{1}{k} \sum_{m=1}^k \text{resolve}(A \otimes B, \text{sample}_m) \right) \]
+  where the samples are drawn using a low-discrepancy sequence on the Hilbert curve.
+- **Academic Standard**: **Monte Carlo Integration**.
+- **Virtual Layer Dynamics**: **Statistical Memoization**. Providing an $O(k)$ estimate of an $O(N)$ operation by treating the entire matrix product as a probability density function on a geometric latent space.
+
+---
+
+## 2. Manifold Expectation (Latent Expectation)
+**Lines 54-68**
+- **Logic**: Calculating the expected value of a geometric field.
+- **Math (LaTeX)**:
+  Expectation $\mathbb{E}[M]$:
+  \[ \mathbb{E}[M] = \frac{1}{N} \int_{\Omega} \Phi(\sigma, \mathbf{x}) d\mathbf{x} \approx \frac{1}{k} \sum_{i=1}^k V_i \]
+- **Academic Standard**: **Mean Value Theorem**.
+- **Virtual Layer Dynamics**: **Law Averaging**. Finding the "Center of Gravity" for an inference law's output diversity.
+
+---
+
+## 3. Observer Consensus (Deterministic Consistency)
+**Lines 73-96**
+- **Logic**: verifying that independent lookups into the latent space return identical results.
+- **Math (LaTeX)**:
+  A field is consistent if for $N$ observations $O$:
+  \[ \forall i, j \in \{1 \dots N\}: |O_i(x) - O_j(x)| < \epsilon \]
+- **Academic Standard**: **Empirical determinism**.
+- **Virtual Layer Dynamics**: **Observer Verification**. Proving that the Generative Engine is not stochastic but deterministic. If multiple independent "Observers" (threads or nodes) query the latent space for the same coordinate, the laws of the substrate MUST yield the same truth.

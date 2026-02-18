@@ -1,0 +1,29 @@
+# vMath Synthesis: vgpu_rust/src/visomorphism.rs
+
+## 1. Isomorphic Machine (Semantic Compression)
+**Lines 59-94**
+- **Logic**: Detecting structural equivalence in computational graphs to enable cross-project memoization.
+- **Math (LaTeX)**:
+  Let $G_1, G_2$ be two Data Flow Graphs. They are isomorphic if $\exists \Psi$ such that:
+  \[ \text{Fingerprint}(G_1) \equiv \text{Fingerprint}(G_2) \]
+- **Academic Standard**: **Graph Isomorphism**.
+- **Virtual Layer Dynamics**: **Zero-Instruction Cache**. If two different programs (e.g., a fluid sim and a finance model) use the same underlying mathematical structure, the vGPU recognizes the isomorphism and shunts the result from the "Learned" project to the "New" project instantly.
+
+---
+
+## 2. Topological HDC Signatures
+**Lines 96-118**
+- **Logic**: Folding the entire history of an operation stream into a single HDC vector.
+- **Math (LaTeX)**:
+  For a sequence of nodes $N_k$:
+  \[ \mathbf{V}_{total} = \text{sgn}\left( \sum \text{sgn}(\text{Op}_k \otimes \Pi(\mathbf{V}_{input1}) \otimes \Pi^2(\mathbf{V}_{input2}) \dots ) \right) \]
+- **Virtual Layer Dynamics**: **Structural Sovereignty**. Ensuring that the "Meaning" of a calculation is captured independently of specific values, enabling the vGPU to become an Oracle for the "Laws of Math" themselves.
+
+---
+
+## 3. Command Stream Normalization
+**Lines 77-80**
+- **Logic**: Canonicalizing commutative operations (Add/Mul) to ensure identical signatures.
+- **Math (LaTeX)**:
+  \[ \text{Inputs}_{sorted} = \text{sort}(\{i_1, i_2, \dots, i_n\}) \]
+- **Virtual Layer Dynamics**: **Symmetry Recognition**. guaranteeing that $A \times B$ and $B \times A$ yield the same fingerprint, maximizing the hit-rate of the inference engine.

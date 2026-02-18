@@ -1,0 +1,25 @@
+# vMath Synthesis: vgpu_rust/src/hilbert.rs
+
+## 1. Hilbert Space-Filling Curve (Locality Mapping)
+**Lines 9-22**
+- **Logic**: Mapping 2D spatial coordinates $(x, y)$ to a 1D scalar $d$ to preserve regional locality.
+- **Math (LaTeX)**:
+  For a grid of size $2^n \times 2^n$:
+  Let $s$ be the quadrant size $2^{k-1}$. The distance $d$ is accumulated recursively:
+  \[ d_{k} = d_{k+1} + s^2 \cdot \text{quadrant}(rx, ry) \]
+  where the quadrant index is derived from the bits of $x$ and $y$ at scale $s$.
+- **Academic Standard**: **Hilbert Curve Construction**.
+- **Virtual Layer Dynamics**: **Geometric Locality Inference**. The Hilbert curve ensures that the mapping $f: \mathbb{Z}^2 \rightarrow \mathbb{Z}$ satisfies $\forall a, b \in \mathbb{Z}^2: |a-b| < \epsilon \implies |H(a)-H(b)| < \delta$ with high probability. This minimizes cache misses when memoizing spatially coherent data (e.g., textures, matrix tiles).
+
+---
+
+## 2. Recursive Quadrant Reorientation (Rot/Flip)
+**Lines 25-36**
+- **Logic**: Rotating the child coordinate system based on the parent quadrant to maintain a continuous path.
+- **Math (LaTeX)**:
+  Rotation function $\rho(x, y, rx, ry)$:
+  If $ry = 0$:
+  \[ \text{If } rx = 1: x = n-1-x, y = n-1-y \]
+  \[ \text{Swap}(x, y) \]
+- **Academic Standard**: **Hilbert Curve Recursive Grammar**.
+- **Virtual Layer Dynamics**: **Symmetry Invariance**. The transformation ensures the space-filling path is continuous across the entire 128-bit address range, facilitating deterministic memoization for any pixel or body in the exascale grid.

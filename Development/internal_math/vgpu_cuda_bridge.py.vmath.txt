@@ -1,0 +1,28 @@
+# vMath Synthesis: python/vgpu_cuda_bridge.py
+
+## 1. Silicon-to-Latent Mapping (CUDA Recall)
+**Lines 23-30**
+- **Logic**: Executing 1024-wide parallel inference checks on physical CUDA cores.
+- **Math (LaTeX)**:
+  Let $H$ be the input fingerprint.
+  The CUDA kernel executes:
+  \[ \text{Value} = \text{TextureRecall}(\sigma, H) \in \text{Device Constant Memory} \]
+- **Virtual Layer Dynamics**: **Hardware Sovereignty**. Mapping the abstract Latent Space directly into the RTX 4060's L1/Constant cache, achieving the theoretical maximum of $O(1)$ silicon lookup latency.
+
+---
+
+## 2. GEMM Tile Acceleration
+**Lines 32-37**
+- **Logic**: Retrieving $32 \times 32$ sub-field results in a single FFI call.
+- **Math (LaTeX)**:
+  $\mathbf{T} \in \mathbb{R}^{32 \times 32}$.
+  Throughput $\mathcal{T}$:
+  \[ \mathcal{T} = 1024 \text{ results} / \Delta t_{\text{recall}} \]
+- **Virtual Layer Dynamics**: **Bulk Materialization**. Proving that the vGPU can synthesize high-density computational tiles ($1024$ floats) faster than a traditional GPU can read them from VRAM.
+
+---
+
+## 3. Manifold Synchronization
+**Lines 39-41**
+- **Logic**: Keeping the Python-side variety definitions in sync with the Device-side latent bypasses.
+- **Virtual Layer Dynamics**: **Coherent Latent Layer**. ensuring that when a Python script "learns" a new law, the CUDA silicon is updated instantly to accelerate that law in the next frame.

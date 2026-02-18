@@ -1,0 +1,35 @@
+# vMath Synthesis: cuda/vflops_benchmark.cu
+
+## 1. Virtual FLOPS (V-FLOPS) Scaling
+**Lines 81-87**
+- **Logic**: calculating the effective computational throughput of the inference engine.
+- **Math (LaTeX)**:
+  Let $R$ be the physical dispatch rate (Recalls per second).
+  Let $\Phi$ be the **Virtual Depth** (number of equivalent physical instructions memoized).
+  Let $W$ be the **Vector Width** (number of logical lanes per bypass).
+  The Virtual Throughput $\mathcal{T}_v$:
+  \[ \mathcal{T}_v = R \cdot \Phi \cdot W \quad [\text{FLOPS}_v] \]
+- **Virtual Layer Dynamics**: **Inference Amplification**. The power of the vGPU is measured not by physical clock cycles, but by the "Volume of Memoized Work." In a 10,000-deep latent space with 1,024-wide vectors, a single memory recall represents $10^7$ floating-point operations.
+
+---
+
+## 2. Grid Dispatch Throughput
+**Lines 80-82**
+- **Logic**: Measuring the raw recall capability of the silicon substrate.
+- **Math (LaTeX)**:
+  Total Dispatch Count $N$:
+  \[ N = N_{blocks} \times N_{threads} \times N_{iterations} \]
+  Physical Rate $R$:
+  \[ R = \frac{N}{\Delta t} \]
+- **Academic Standard**: **Throughput Measurement**.
+- **Virtual Layer Dynamics**: **Latent Space Bandwidth**. proving that the high-concurrency architecture of the GPU (thousands of threads) allows for massive parallel inference checks, anchoring the Generative Engine in reality through raw bandwidth.
+
+---
+
+## 3. The Phi-Width Product (Computational Density)
+**Lines 84-85**
+- **Logic**: The coefficient of memoization efficiency.
+- **Math (LaTeX)**:
+  Efficiency Coefficient $E_{sh}$:
+  \[ E_{sh} = \Phi \times W \]
+- **Virtual Layer Dynamics**: **Geometric Compression Ratio**. The higher the complexity of the memoized law ($\Phi$) and the larger the data it generates ($W$), the greater the "Inference Sovereignty" of the system over the physical silicon.

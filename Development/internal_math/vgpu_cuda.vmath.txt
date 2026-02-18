@@ -1,0 +1,28 @@
+# vMath Synthesis: vgpu_cuda (CUDA / C++ Bridge)
+
+## 1. Warp-Level Memoization
+**cuda/vgpu_cuda.cu: Lines 50-80**
+- **Logic**: Executing inference recall across 32 threads in parallel.
+- **Math (LaTeX)**:
+  Warp Result $W$:
+  \[ W = \bigcup_{i=0}^{31} \text{Recall}(\sigma, \mathcal{H}_i) \]
+  where thread $i$ checks its own coordinate hash against the constant-memory latent space.
+
+---
+
+## 2. Floating-Point Mirroring (vVRAM)
+**cuda/include/vbridge.cuh: Lines 100-120**
+- **Logic**: Mapping IEEE 754 floats into the RNS engine.
+- **Math (LaTeX)**:
+  Embedding $E$:
+  \[ E(f) = \lfloor f \cdot 2^{32} \rfloor \pmod{\prod m_n} \]
+
+---
+
+## 3. Eternal Sync (Context Continuity)
+**cuda/vgpu_cuda.cu: Lines 150-170**
+- **Logic**: Synchronizing the Rust `VGpuContext` with the CUDA device state.
+- **Math (LaTeX)**:
+  State $\mathcal{S}$:
+  \[ \mathcal{S}_{gpu} = \text{Map}(\mathcal{S}_{rust}, \text{Shared Memory}) \]
+- **Virtual Layer Dynamics**: **Hardware Indeterminacy Fix**. Forcing the non-deterministic GPU hardware to align with the deterministic Inference Engine.

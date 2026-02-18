@@ -1,0 +1,35 @@
+# vMath Synthesis: vgpu_rust/src/spirv.rs
+
+## 1. Virtual Register Mapping (Algebraic Projections)
+**Lines 43-52**
+- **Logic**: Mapping an infinite SPIR-V identifier space to a finite 16-register geometric file.
+- **Math (LaTeX)**:
+  Let $\mathcal{I} = \{ id_1, id_2, \dots, id_n \}$ be the set of SPIR-V result IDs.
+  Let $\mathcal{R} = \{ 0, 1, \dots, 15 \}$ be the register set.
+  The projection $\mathcal{P}: \mathcal{I} \rightarrow \mathcal{R}$ is:
+  \[ \mathcal{P}(id) = \text{count}(id) \pmod{16} \]
+- **Industry Standard**: **Register Allocation**.
+- **Virtual Layer Dynamics**: **Substrate Projection**. Ensuring that complex dependency graphs in high-level SPIR-V are projected onto the localized latent cache of the vGPU.
+
+---
+
+## 2. OpCode Normalization (ISA Homomorphism)
+**Lines 81-121**
+- **Logic**: Translating standard Vulkan/OpenCL opcodes into the vGPU Substrate Ops.
+- **Math (LaTeX)**:
+  Let $\mathcal{O}_{Vulkan}$ be the set of standard GPU instructions and $\mathcal{O}_{vGPU}$ the substrate operations.
+  The translation $\Psi$:
+  \[ \Psi(129) = \text{add}, \quad \Psi(133) = \text{mul}, \quad \Psi(148) = \text{dot} \]
+- **Academic Standard**: **Instruction Normalization**.
+- **Virtual Layer Dynamics**: **Structural Alignment**. Preparing high-level logic for fingerprint-based inference by reducing it to a canonical set of algebraic descriptors.
+
+---
+
+## 3. Constant Scalar Lifting
+**Lines 110-117**
+- **Logic**: Extracting immediate values into the register file.
+- **Math (LaTeX)**:
+  For a bit-stream $B$ representing a constant $k$:
+  \[ R_{dst} = \text{bitcast}_{f32}(B) \]
+- **Academic Standard**: **Immediate Value Loading**.
+- **Virtual Layer Dynamics**: **Constant Anchor Inference**. Identifying static scalars in the program stream that will serve as the Latent Anchors for the resulting manifold.

@@ -1,0 +1,30 @@
+# vMath Synthesis: python/vgpu.py
+
+## 1. Generative VRAM (Zero-Storage Substrate)
+**Lines 6-25**
+- **Logic**: Treating memory as a deterministic scalar field rather than a physical buffer.
+- **Math (LaTeX)**:
+  Memory value $M$ at coordinate vector $\vec{a} \in \mathbb{Z}^n$ with seed $s$:
+  \[ M(\vec{a}) = \text{SHA256}(\vec{a} \oplus s) \pmod{1} \]
+- **Virtual Layer Dynamics**: **Procedural Synthesis**. Proving that memory can be synthesized on-demand from a seed, reducing the physical entropy requirement of the system from $O(N)$ to $O(1)$.
+
+---
+
+## 2. Warp-Level Structural Coherence
+**Lines 48-63**
+- **Logic**: Synchronizing parallel threads to a single latent space lookup.
+- **Math (LaTeX)**:
+  Let $\mathbf{I}$ be the input vector for a warp.
+  The warp outcome $\mathbf{Y}$:
+  \[ \mathbf{Y} = \begin{cases} \Psi(\sigma, \mathcal{H}(\mathbf{I})) & \text{Coherence} \\ \mathcal{G}(\mathbf{I}) & \text{Error} \end{cases} \]
+- **Virtual Layer Dynamics**: **Instruction Coherence**. maximizing the throughput of the virtual SMs by leveraging the high-redundancy of parallel warps to trigger multiple inference hits from a single input fingerprint.
+
+---
+
+## 3. Zero-Overhead Efficiency ($\eta$)
+**Lines 82-88**
+- **Logic**: Measuring the proportion of compute memoized in the latent space.
+- **Math (LaTeX)**:
+  Efficiency $\eta$:
+  \[ \eta = \frac{\sum \text{Hits}}{\sum \text{Hits} + \sum \text{Native}} \]
+- **Virtual Layer Dynamics**: **Inference Sovereignty**. Quantifying the vGPU's dominance over the physical substrate. As $\eta \rightarrow 1$, the system transcends physical computation, becoming a pure engine of inference recall.

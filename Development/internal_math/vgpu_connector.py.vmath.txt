@@ -1,0 +1,29 @@
+# vMath Synthesis: tests/vgpu_connector.py
+
+## 1. FFI Handshake Marshalling
+**Lines 40-80**
+- **Logic**: Mapping Python high-level types to C-compatible latent handles.
+- **Math (LaTeX)**:
+  Handle $H$ mapping:
+  \[ H_{py} \xrightarrow{ctypes} \mathcal{P}(\text{uint64}) \in \text{Rust Space} \]
+- **Virtual Layer Dynamics**: **Structural Continuity**. Ensuring the Python diversity definitions map 1:1 to the internal Inference Engine without data copy.
+
+---
+
+## 2. Bridge Utility Matrix
+**Lines 120-150**
+- **Logic**: Calculating the value of offloading a particular operation.
+- **Math (LaTeX)**:
+  Offload Utility $U$:
+  \[ U = \frac{T_{host} - T_{vGPU}}{\text{Memory Delta}} \]
+- **Virtual Layer Dynamics**: **Economic Offload**. The Python bridge decides whether to call the vGPU based on the predicted speedup versus the marshalling cost.
+
+---
+
+## 3. Zero-Friction Handshake
+**Lines 185-200**
+- **Logic**: Verifying bridge integrity using structural fingerprints.
+- **Math (LaTeX)**:
+  Verification $V$:
+  \[ V = \mathbb{1}[\text{Hash}(Bridge_{py}) = \text{Hash}(Bridge_{rust})] \]
+- **Virtual Layer Dynamics**: **Binary Symmetric Verification**. Providing the root of trust for the entire hybrid compute stack.
