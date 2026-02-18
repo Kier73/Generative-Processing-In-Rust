@@ -26,35 +26,6 @@ Key subsystems include:
 - **VHdc**: Generates semantic signatures for cross-language structural identity.
 - **Trinity**: Provides O(1) resolution for recursive and iterative procedures.
 
-## Terminology Bridge
-
-A reference for understanding the internal **vMath** dialect used in the vGPU codebase and standard terms used in **Computer Science, Linear Algebra, and Machine Learning**.
-
-### Core Concepts
-
-| vMath (Internal) | Academic / Industry Term | Mathematical Definition / Context |
-| :--- | :--- | :--- |
-| **Variety** | **Deterministic Pseudorandom Field (DPF)** | $f: \Sigma \times \mathbb{Z}^n \to \mathbb{R}$. Procedural generation. |
-| **Shunting** | **Algorithmic Memoization** | $O(N) \to O(1)$. Bypassing execution via cached information. |
-| **Induction** | **Signature-Based Inference** | Pattern matching fingerprints against a result store. |
-| **Manifold** | **Computational Latent Space** | High-dimensional mapping of valid operations. |
-| **Signature** | **Feature Fingerprint** | Collision-resistant hash of a kernel or data block. |
-| **Holographic** | **Semantic Isomorphism** | Recognizing similarity in underlying structure (HDC). |
-| **Crystallization** | **Static Convergence** | State where computation is fully shunted/cached. |
-| **Resonance** | **Coherence / Zero-Error** | Matching between predicted variety and actual data. |
-| **Dissonance** | **Residual Error / Surprise** | $|\text{Predicted} - \text{Actual}|$. Used in Active Inference. |
-| **Generative Memory** | **Procedural Synthesis** | Replacing storage buffers with $O(1)$ ALU functions. |
-| **Butterfly** | **Log-N Connectivity** | Recursive topology for parallel reduction/expansion. |
-| **Substrate Integrity**| **Hardware Fault Tolerance** | Error detection via RNS residue divergence. |
-
-### Operational Workflow
-
-1. **Feature Fingerprinting**: Map instruction streams/data to a compact 64-bit representation ($\sigma$).
-2. **Latent Mapping**: Search the Inference Cache (Manifold) for the fingerprint.
-3. **Memoized Recall**: If a match is found, return the result in $O(1)$.
-4. **Active Inference Loop**: If no match, compute via ALU and "observe" the result to form the manifold for future shunting.
-5. **Procedural Synthesis**: For large fields (VRAM), use a scale-invariant DPF (Feistel) to resolve coordinates on-demand.
-
 ## Installation and Usage
 The core library is implemented in Rust. 
 
@@ -89,6 +60,36 @@ vGPU exposes a stable C-API for integration into existing pipelines.
 - `vgpu_gemm()`: High-performance inductive matrix multiplication.
 - `vgpu_induction_events()`: Metric tracking for law promotion.
 - `vgpu_last_divergence()`: Quantitative dissonance measurement.
+
+## Terminology Bridge
+
+A reference for understanding the internal **vMath** dialect used in the vGPU codebase and standard terms used in **Computer Science, Linear Algebra, and Machine Learning**.
+
+### Core Concepts
+
+| vMath (Internal) | Academic / Industry Term | Mathematical Definition / Context |
+| :--- | :--- | :--- |
+| **Variety** | **Deterministic Pseudorandom Field (DPF)** | $f: \Sigma \times \mathbb{Z}^n \to \mathbb{R}$. Procedural generation. |
+| **Shunting** | **Algorithmic Memoization** | $O(N) \to O(1)$. Bypassing execution via cached information. |
+| **Induction** | **Signature-Based Inference** | Pattern matching fingerprints against a result store. |
+| **Manifold** | **Computational Latent Space** | High-dimensional mapping of valid operations. |
+| **Signature** | **Feature Fingerprint** | Collision-resistant hash of a kernel or data block. |
+| **Holographic** | **Semantic Isomorphism** | Recognizing similarity in underlying structure (HDC). |
+| **Crystallization** | **Static Convergence** | State where computation is fully shunted/cached. |
+| **Resonance** | **Coherence / Zero-Error** | Matching between predicted variety and actual data. |
+| **Dissonance** | **Residual Error / Surprise** | $|\text{Predicted} - \text{Actual}|$. Used in Active Inference. |
+| **Generative Memory** | **Procedural Synthesis** | Replacing storage buffers with $O(1)$ ALU functions. |
+| **Butterfly** | **Log-N Connectivity** | Recursive topology for parallel reduction/expansion. |
+| **Substrate Integrity**| **Hardware Fault Tolerance** | Error detection via RNS residue divergence. |
+
+### Operational Workflow
+
+1. **Feature Fingerprinting**: Map instruction streams/data to a compact 64-bit representation ($\sigma$).
+2. **Latent Mapping**: Search the Inference Cache (Manifold) for the fingerprint.
+3. **Memoized Recall**: If a match is found, return the result in $O(1)$.
+4. **Active Inference Loop**: If no match, compute via ALU and "observe" the result to form the manifold for future shunting.
+5. **Procedural Synthesis**: For large fields (VRAM), use a scale-invariant DPF (Feistel) to resolve coordinates on-demand.
+
 
 ---
 License: MIT/Apache-2.0
