@@ -70,7 +70,7 @@ cargo test --release -- --nocapture
 ```
 
 ## Key Benchmarks
-Current performance results captured in the release-ready environment:
+Current performance results captured in the environment:
 
 | Feature | Benchmark Test | Performance Metric |
 | :--- | :--- | :--- |
