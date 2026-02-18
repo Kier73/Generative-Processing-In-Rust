@@ -8,7 +8,7 @@ To operate, the vGPU uses a custom method of memoization called **Process Induct
 
 Process Induction learns the logical structure of any given computation, rather than just output values. Then, through feistel based Deterministic Hashes, the vGPU encodes the inducted logic as 64-bit seeds in a SHA256 formed address space. This space is observed as a geometric manifold or torus, and the encoded seeds as the topology. 
 
-Resulting in the $O(1)$ recall of complex algorithms, alongside bit-exact Numerical Reproducibility by simply Observing points on Geometry.
+Resulting in the $O(1)$ recall of complex algorithms, alongside bit-exact results by simply Observing points on Geometry.
 
 ## X Marks the Spot!
 
