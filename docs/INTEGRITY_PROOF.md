@@ -7,12 +7,12 @@ The vGPU does not map inputs directly to outputs. It executes a **Virtual Instru
 - **Proof**: If you insert a `BTrap` (Conditional Branch) into a shader, the execution flow changes based on real-time data, which would be impossible in a pre-computed system.
 
 ## 2. Bayesian Dissonance Control
-To ensure the manifold hasn't been corrupted, the system implements an active verification layer.
+To ensure the address space hasn't been corrupted, the system implements an active verification layer.
 - **Location**: `vgpu_rust/src/lib.rs` -> `DissonanceControl`
 - **Mechanism**: The system periodically samples "Induced" results ($O(1)$) and compares them against "Ground Truth" results ($O(N)$). 
 - **Proof**: If the system were hardcoded, any change to the input distributions would cause a massive spike in the `last_divergence` metric, which is exposed via FFI and verified in our tests.
 
-## 3. Semantic Identity (Geometric Grounding)
+## 3. Semantic Identity (Grounding)
 The vGPU uses content-addressable logic.
 - **Location**: `vgpu_rust/src/lib.rs` -> `VirtualShader::generate_semantic_signature`
 - **Mechanism**: The signature is a 64-bit HDC hash of the *structure* of the code, not the text. It is immune to register renaming (alpha-renaming) and instruction reordering.
