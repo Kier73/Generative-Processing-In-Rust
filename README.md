@@ -1,6 +1,6 @@
 # G means Generative: Scale-invariant Operations in Virtual Memory
 
-The vGPU is for **Optimization**, while also providing bit-exact methods of virtual **Prediction** and **Processing** for host hardware.
+The Generative Processor is for **Optimization**, while also providing bit-exact methods of virtual **Prediction** and **Processing** for host hardware.
 
 Mainly built in the Rust language, the architecture uses a **Generative** approach to processing by treating it as compression...huh?
 
@@ -54,7 +54,7 @@ Current performance results captured in the environment:
 | **Substrate Integrity**| `tests/test_substrate_integrity.rs` | Instant detection of bit residue corruption |
 
 ## C-API (FFI)
-vGPU exposes a stable C-API for integration into existing pipelines.
+The Generative Processor exposes a stable C-API for integration into existing pipelines.
 - `vgpu_new(seed)`: Initialize a new manifold.
 - `vgpu_dispatch()`: Execute with automatic process induction.
 - `vgpu_gemm()`: High-performance inductive matrix multiplication.
