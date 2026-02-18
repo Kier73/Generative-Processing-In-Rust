@@ -21,7 +21,7 @@ By the Chinese Remainder Theorem (CRT), tuples can  identify any hash and pull i
 
 ## System Overview
 Key subsystems include:
-- **VInductor**: Manages the process manifold and autonomous law promotion.
+- **VInductor**: Manages the encoded space and autonomous law promotion.
 - **VRns**: Ensures bit-exact numerical reproducibility across diverse hardware.
 - **VHdc**: Generates semantic signatures for cross-language structural identity.
 - **Trinity**: Provides O(1) resolution for recursive and iterative procedures.
