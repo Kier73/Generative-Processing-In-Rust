@@ -35,7 +35,7 @@ A reference for understanding the internal **vMath** dialect used in the vGPU co
 | vMath (Internal) | Academic / Industry Term | Mathematical Definition / Context |
 | :--- | :--- | :--- |
 | **Variety** | **Deterministic Pseudorandom Field (DPF)** | $f: \Sigma \times \mathbb{Z}^n \to \mathbb{R}$. Procedural generation. |
-| **Shunting** | **Algorithmic Memoization** | $O(N) \to O(1)$. Bypassing execution via cached results. |
+| **Shunting** | **Algorithmic Memoization** | $O(N) \to O(1)$. Bypassing execution via cached information. |
 | **Induction** | **Signature-Based Inference** | Pattern matching fingerprints against a result store. |
 | **Manifold** | **Computational Latent Space** | High-dimensional mapping of valid operations. |
 | **Signature** | **Feature Fingerprint** | Collision-resistant hash of a kernel or data block. |
