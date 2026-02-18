@@ -1,7 +1,7 @@
 # vGPU: Technical Integrity 
 
 ## 1. Concrete Execution Engine
-The vGPU does not map inputs directly to outputs. It executes a **Virtual Instruction Set** (vISA) defined in `SpvOp`.
+The vGPU executes a **Virtual Instruction Set** (vISA) defined in `SpvOp`.
 - **Location**: `vgpu_rust/src/lib.rs` -> `RegisterFile::execute_op`
 - **Mechanism**: A robust match-loop that performs standard IEEE-754 floating-point operations.
 - **Proof**: If you insert a `BTrap` (Conditional Branch) into a shader, the execution flow changes based on real-time data, which would be impossible in a pre-computed system.
