@@ -12,7 +12,7 @@ A lookup, and or prediction, becomes the $O(1)$ recall of complex algorithms and
 
 ## X Marks the Spot!
 
-Indexing and Observation of the encoded geometry is achieved through Residue Number Systems (RNS) and Time
+Indexing and Observation of the encoded space is achieved through Residue Number Systems (RNS) and Time
 
 RNS represents a value associated to a hash not as a single number, but as a set of remainders across coprime moduli. No matter the scale of the hashed address, an adaptable number of primes can be used for accuracy. 
 
