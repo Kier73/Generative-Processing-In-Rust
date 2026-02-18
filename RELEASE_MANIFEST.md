@@ -41,5 +41,4 @@ Execution on reference hardware (optimized release build):
 - **Safety**: Thread-safe concurrent writes to the process manifold verified.
 
 ---
-**Status**: Ready for Public Merge.
-**Release ID**: 1792c699-0.1.0
+
