@@ -6,7 +6,7 @@ Mainly built in the Rust language, the architecture uses a **Generative** approa
 
 To operate, The Generative Processing Unit uses a custom method of memoization called **Process Induction**. 
 
-Process Induction learns the logical structure of algorithms, rather than just output values. Then, through feistel based Deterministic Hashes, the vGPU encodes the inducted logic as 64-bit seeds in a SHA256 formed address space. 
+Process Induction learns the logical structure of algorithms, rather than just output values. Then, through feistel based Deterministic Hashes, the the system encodes the inducted logic as 64-bit seeds in a SHA256 formed address space. 
 
 A lookup, and or prediction, becomes the $O(1)$ execution of complex algorithms, and a further observation of the generated continuity of possible results for that algorithm
 
