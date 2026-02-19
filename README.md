@@ -4,7 +4,7 @@ The Generative Processor is for **Optimization**, while also providing bit-exact
 
 Mainly built in the Rust language, the architecture uses a **Generative** approach to processing by treating it as compression...huh?
 
-To operate, the vGPU uses a custom method of memoization called **Process Induction**. 
+To operate, The Generative Processing Unit uses a custom method of memoization called **Process Induction**. 
 
 Process Induction learns the logical structure of any given computation, rather than just output values. Then, through feistel based Deterministic Hashes, the vGPU encodes the inducted logic as 64-bit seeds in a SHA256 formed address space. 
 
