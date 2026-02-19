@@ -2,7 +2,7 @@
 
 The Generative Processor is for **Optimization**, while also providing bit-exact methods of virtual **Prediction** and **Processing** for host hardware.
 
-Mainly built in the Rust language, the architecture uses a **Generative** approach to processing by treating it as compression...huh?
+Mainly built in the Rust language, the architecture uses a **Generative** approach to processing as compression and just in time decompression
 
 To operate, The Generative Processing Unit uses a custom method of memoization called **Process Induction**. 
 
