@@ -1,18 +1,22 @@
-# G means Generative: Scale-invariant Operations in Virtual Memory
+# G Means Generative
 
-The Generative Processor is for **Optimization**, while also providing bit-exact methods of virtual **Prediction** and **Processing** for host hardware.
+The Generative Processor is an **Optimization** tool, while also providing **Scale Invariant** methods of **Processing** and **Prediction**
 
-Mainly built in the Rust language, the architecture uses a **Generative** approach to processing as compression and just in time decompression
+Built in Rust, with bridges to Python and C
 
-To operate, The Generative Processing Unit uses a custom method of memoization called **Process Induction**. 
+Generative Processing uses a custom method of memoization called **Process Induction**.
 
-Process Induction learns the logical structure of algorithms, rather than just output values. Then, through feistel based Deterministic Hashes, the the system encodes the inducted logic as 64-bit seeds in a SHA256 formed address space. 
+Process Induction compresses the logical structure of algorithms, rather than just output values. 
 
-A lookup, and or prediction, becomes the $O(1)$ execution of complex algorithms, and a further observation of the generated continuity of possible results for that algorithm
+The compression is focused through **Feistel based Deterministic Hash** that form **64-bit seeds**. These seeds are encoded as the topology of a **SHA256 Address Space** used for **Virtual Memory** during operation
+
+in the virtual address space, **Time is a coordinate**. This means the position of the inducted seed in relation to its time, equates to the amount of operations of the algorithm occuring. 
+
+The Generative Processor carries an input while making the $O(1)$ observation of the seeded algorithm. Altering the value or input in $O(1)$ depending on the position of the seeded algorithm in the Address Space. 
 
 ## X Marks the Spot!
 
-Indexing and Observation of the encoded space is achieved through Residue Number Systems (RNS) and Time
+Indexing and Observation of the encoded address space is achieved through Residue Number Systems (RNS) and Time 
 
 RNS represents a value associated to a hash not as a single number, but as a set of remainders across coprime moduli. No matter the scale of the hashed address, an adaptable number of primes can be used for accuracy. 
 
