@@ -4,13 +4,13 @@ The Generative Processor is an **Optimization** tool, while also providing **Sca
 
 Built in Rust, with bridges to Python and C
 
-Generative Processing uses a custom method of memoization called **Process Induction**.
+The entry point to Generative Processing is a custom form of memoization called **Process Induction**
 
 Process Induction compresses the logical structure of algorithms, rather than just output values. 
 
-The compression is focused through **Feistel based Deterministic Hash** that form **64-bit seeds**. These seeds are encoded as the topology of a **SHA256 Address Space** used for **Virtual Memory** during operation
+The compression is focused through a **Feistel based Deterministic Hash** that forms **64-bit seeds**. During operation, These seeds are encoded as the topology of a **SHA256 Address Space** used for **Virtual Memory**
 
-in the virtual address space, **Time is a coordinate**. This means the position of the inducted seed in relation to its time, equates to the amount of operations of the algorithm occuring. 
+In the virtual address space, **Time is a coordinate**. 
 
 The Generative Processor carries an input while making the $O(1)$ observation of the seeded algorithm. Altering the value or input in $O(1)$ depending on the position of the seeded algorithm in the Address Space. 
 
