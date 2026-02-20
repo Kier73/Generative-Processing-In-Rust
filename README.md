@@ -67,7 +67,7 @@ The Generative Processor exposes a stable C-API for integration into existing pi
 
 ## Terminology Bridge
 
-A reference for understanding the internal **vMath** dialect used in the vGPU codebase and standard terms used in **Computer Science, Linear Algebra, and Machine Learning**.
+A reference for understanding the internal **vMath** dialect used in the codebase and standard terms used in **Computer Science, Linear Algebra, and Machine Learning**. 
 
 ### Core Concepts
 
