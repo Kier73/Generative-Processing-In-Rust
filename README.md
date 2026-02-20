@@ -97,3 +97,4 @@ A reference for understanding the internal **vMath** dialect used in the codebas
 
 ---
 License: MIT/Apache-2.0
+© 2026 Kieran Vanderburgh | Part of the Virtual Layer Project.
