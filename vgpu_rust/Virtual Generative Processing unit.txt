@@ -1,0 +1,3 @@
+vGPU means Virtual Generative Processing Unit
+
+...it is going to be re-termed soon
