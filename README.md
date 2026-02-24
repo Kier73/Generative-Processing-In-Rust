@@ -1,18 +1,18 @@
 # G Means Generative
 
-The Generative Processor is an **Optimization** tool, while also providing **Scale Invariant** methods of **Processing** and **Prediction**
+The Generative Processor is an **Optimization** tool, while also providing **Scale Invariant** methods of **Processing** and **Prediction**.
 
 Built in Rust, with bridges to Python and C
 
 The entry point to Generative Processing is a custom form of memoization called **Process Induction**
 
-Process Induction compresses the logical structure of algorithms, rather than just output values. 
+Process Induction compresses the logical structure of algorithms into seeds, rather than just output values. 
 
-The compression is focused through a **Feistel based Deterministic Hash** that forms **64-bit seeds**. During operation, These seeds are encoded as the topology of a **SHA256 Address Space** used for **Virtual Memory**
+The compression is focused through a reversible **Feistel based Deterministic Hash** that forms the **64-bit seeds**. During operation, These seeds are encoded as the topology of a **SHA256 Address Space** used for **Virtual Memory**
 
-In the virtual address space, **Time is a coordinate**. 
+The geometric framing, and number theoretic transforms, provide the means to navigate the layers of **exascale** address spaces as hyperdimensional computing substrates with low compute overhead. 
 
-The Generative Processor carries an input while making the $O(1)$ observation of the seeded algorithm. Altering the value or input in $O(1)$ depending on the position of the seeded algorithm in the Address Space. 
+The processing in memory is homomorphic, as the system carries an input while making the $O(1)$ observation of the seeded algorithm. Altering the value or input in $O(1)$ depending on the position of the seeded algorithm in the Address Spaces geometry and time. 
 
 ## X Marks the Spot!
 
@@ -93,6 +93,17 @@ A reference for understanding the internal **vMath** dialect used in the codebas
 3. **Memoized Recall**: If a match is found, return the result in $O(1)$.
 4. **Active Inference Loop**: If no match, compute via ALU and "observe" the result to form the manifold for future shunting.
 5. **Procedural Synthesis**: For large fields (VRAM), use a scale-invariant DPF (Feistel) to resolve coordinates on-demand.
+
+---
+## Levels of Abstraction 
+
+The Generative Processor is a result of development on a larger project called the Virtual Layer. 
+
+**level 1**: The Virtual Layer is the memoization and prediction of input and output for structured algorithms. Made possible by deterministic hashing, geometric framing and procedural generation. Navigation to seeded hash based coordinates inside vast virtual spaces is undertaken by number theoretic transforms, residue number systems and timestamps. Enabling bit-exact, reproducible and homomorphic execution of structured processes with low memory overhead over consistent time.
+
+**Level 2**: The assertion that applying geometric framing to algorithms and functions inside virtual address spaces and time, provides the method of replacing iterative computation. To instead define the shape of a task or input, and navigate or observe the output from a coordinate to generate a result. Transforming semantic and measured information into a traversable dimension, and virtual memory into a generative process of attention.
+
+**level 3**: Any information that has a consensus Ground result, logical operation and intention from an observing structure, can be transformed in a Scale invariant procedurally generated space of memory. The confirmed ground result is the point of entry in time for perceiving all possible transformations of the information, based on the structure of its logical operation. Navigation of this information space is maintained by the capacity of the observing structure to maintain the energy for coherent perception of the information space, and the intention of continuing or tracing the transforms made possible by the logical operation through time.
 
 
 ---
