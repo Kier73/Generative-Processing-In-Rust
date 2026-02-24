@@ -12,7 +12,7 @@ The compression is focused through a reversible **Feistel based Deterministic Ha
 
 The geometric framing, and number theoretic transforms, provide the means to navigate the layers of **exascale** address spaces as hyperdimensional computing substrates with low compute overhead. 
 
-The processing in memory is homomorphic, as the system carries an input while making the $O(1)$ observation of the seeded algorithm. Altering the value or input in $O(1)$ depending on the position of the seeded algorithm in the Address Spaces geometry and time. 
+The processing in memory is homomorphic, as the system carries an input while making the $O(1)$ observation of the seeded algorithm. Altering the value or input in $O(1)$ depending on the position of the seeded algorithm in the Geometry and Timestamp of the Address Spaces
 
 ## X Marks the Spot!
 
